@@ -27,65 +27,12 @@ padding:8px 12px;
 border-radius:8px;
 pointer-events:none;
 }
-  #popup{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.7);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:10000;
-}
-
-#popup-box{
-background:#0a1635;
-padding:25px;
-border-radius:15px;
-text-align:center;
-max-width:350px;
-color:white;
-}
-
-#insta-btn{
-background:#e1306c;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-font-size:18px;
-cursor:pointer;
-margin-right:10px;
-}
-
-#later-btn{
-background:#555;
-color:white;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-font-size:18px;
-cursor:pointer;
-}
+ 
 </style>
 </head>
 <body>
   <div id="watermark">MEcool Live</div>
-  <div id="popup">
-  <div id="popup-box">
-    <h2>MEcool Live</h2>
-    <p>Follow our Instagram for updates.</p>
-
-    <a href="https://instagram.com/mjftbl23" target="_blank">
-      <button id="insta-btn">Follow Instagram</button>
-    </a>
-
-    <button id="later-btn" onclick="closePopup()">Later</button>
-  </div>
-</div>
-<video id="video" controls autoplay muted playsinline></video>
+<video id="video" controls autoplay></video>
 
 <script>
 async function init() {
@@ -103,17 +50,7 @@ console.error(e);
 }
 
 init();
-function closePopup(){
-    document.getElementById("popup").style.display="none";
 
-    const video = document.getElementById("video");
-
-    video.muted = false;
-
-    video.play().catch(function(err){
-        console.log(err);
-    });
-}
 </script>
 
 </body>
