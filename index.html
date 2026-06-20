@@ -85,7 +85,7 @@ cursor:pointer;
     <button id="later-btn" onclick="closePopup()">Later</button>
   </div>
 </div>
-<video id="video" controls autoplay></video>
+<video id="video" controls autoplay muted playsinline></video>
 
 <script>
 async function init() {
@@ -103,9 +103,16 @@ console.error(e);
 }
 
 init();
-  function closePopup(){
-  document.getElementById("popup").style.display="none";
-  document.getElementById("video").play();
+function closePopup(){
+    document.getElementById("popup").style.display="none";
+
+    const video = document.getElementById("video");
+
+    video.muted = false;
+
+    video.play().catch(function(err){
+        console.log(err);
+    });
 }
 </script>
 
